@@ -21,3 +21,5 @@ Example:
 	"before": "2025-08-10" 
 }
 ```
+
+To compile, the nlohmann/json library is required.
