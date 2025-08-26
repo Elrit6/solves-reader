@@ -69,7 +69,6 @@ auto ConfigReader::parseDate(
 	if (rawDate.empty())
 		return std::nullopt;
 
-	std::println("{}", rawDate);
 	std::istringstream buffer{rawDate};
 	std::chrono::year_month_day yearMonthDay;
 	buffer >> std::chrono::parse("%F", yearMonthDay);
