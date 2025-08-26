@@ -95,7 +95,7 @@ auto Average::setSolves(const std::vector<Solve> &newSolves) -> void {
 	time = std::chrono::milliseconds(
 		timeSum.count() / static_cast<int32_t>(countingSolves)
 	);
-	dnf = dnfCount > allowedDnfCount;
+	dnf = dnfCount >= allowedDnfCount;
 
 	const Solve &latestSolve = *std::max_element(solves.begin(), solves.end(), 
 		[](const Solve &solve1, const Solve &solve2) {
