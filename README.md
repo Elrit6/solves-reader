@@ -1,6 +1,6 @@
 Simple program that reads, filters and sorts solves or averages from a csTimer export file.
 
-The path to the input file (csTimer export) must be passed as the first parameter (Dragging it onto the program will work as well).
+The path to the input file (csTimer export) must be passed as the first parameter (Dragging it onto the program will work as well, but due to the program reading the config file from a relative path, the file must first be moved into the same directory).
 
 Config properties:
 - sessions (string array) -> Names of sessions from which solves will be read.
@@ -22,4 +22,7 @@ Example:
 }
 ```
 
-To compile, the nlohmann/json library is required.
+To compile:
+- c++23
+- experimental stl (on g++)
+- nlohmann/json library
