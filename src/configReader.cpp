@@ -6,7 +6,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <print>
+
 auto ConfigReader::read() -> ConfigData {
 	constexpr char path[] = "config.json";
 	std::ifstream file(path);
