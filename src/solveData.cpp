@@ -80,16 +80,19 @@ auto Average::setSolves(const std::vector<Solve> &newSolves) -> void {
 	std::uint32_t countingSolves = 0u, dnfCount = 0u;
 	for (std::uint32_t index = 0u; index < solveCount; index++) {
 		const Solve &solve = sortedSolves.at(index);
-		if (solve.dnf)
+		
+		if (!mean && (index < trimCount) || (index >= solveCount - trimCount))
+			continue;
+		
+		if (solve.dnf) {
 			if (!foundDnfCount) {
 				dnfCount = solveCount - index;
 				foundDnfCount = true;
 			}
-		if ((index < trimCount) || (index >= solveCount - trimCount))
-			continue;
-
-		timeSum += solve.time;
-		countingSolves++;
+		} else {
+			timeSum += solve.time;
+			countingSolves++;
+		}
 	}
 	
 	time = std::chrono::milliseconds(
