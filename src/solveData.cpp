@@ -72,8 +72,8 @@ auto Average::setSolves(const std::vector<Solve> &newSolves) -> void {
 	
 	constexpr double trimValue = 0.05;
 	const std::uint32_t
-		trimCount = std::ceil(solveCount * trimValue),
-		allowedDnfCount = trimCount + 1;
+		trimCount = mean ? 0 : std::ceil(solveCount * trimValue),
+		allowedDnfCount = mean ? 0 : trimCount + 1;
 
 	auto timeSum = 0ms;
 	bool foundDnfCount = false;
