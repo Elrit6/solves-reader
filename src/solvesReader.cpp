@@ -3,6 +3,7 @@
 #include <chrono>
 #include <format>
 #include <fstream>
+#include <print>
 #include <stdexcept>
 
 #include <json.hpp>
@@ -97,6 +98,7 @@ auto SolvesReader::getSolvesFromJson(
 
 		if (!selectedSessions.contains(sessionName))
 			continue;
+
 		const nlohmann::json sessionSolves = jsonData.at(std::format("session{}", sessionIndex));
 		getSolvesFromSession(sessionSolves, solves, dateFilter);
 	}
