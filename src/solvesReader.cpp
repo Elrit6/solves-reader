@@ -88,7 +88,7 @@ auto SolvesReader::getSolvesFromJson(
 {
 	std::vector<Solve> solves = {};
 	const nlohmann::json &sessionData = jsonData.at("properties").at("sessionData");
-	const std::uint32_t sessionCount = jsonData.size() - 1u; // last one is properties
+	const std::uint32_t sessionCount = jsonData.size();
 
 	for (std::uint32_t sessionIndex = 1u; sessionIndex < sessionCount; sessionIndex++) {
 		const nlohmann::json &sessionNameObject = sessionData.at(std::to_string(sessionIndex)).at("name");
